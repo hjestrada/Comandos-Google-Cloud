@@ -23,5 +23,9 @@ export ZONE=[CHOOSE_AN_APPROPRIATE_ZONE]
 echo $PROJECT_ID
 echo $ZONE
 
+* Visualice la lista de configuraciones en su entorno:
+
+gcloud config list
+
 
 
