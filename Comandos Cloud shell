@@ -1,0 +1,27 @@
+* mostrar el nombre de la cuenta activa con este comando:
+
+gcloud auth list
+
+* mostrar el ID del proyecto con este comando:
+
+gcloud config list project
+
+* Para verificar cuál es la configuración predeterminada de la región y zona, ejecute los siguientes comandos:
+gcloud config get-value compute/zone
+gcloud config get-value compute/region
+
+*Identifique su región y zona predeterminadas
+gcloud compute project-info describe --project <your_project_ID>
+
+* Configure las variables de entorno
+
+export PROJECT_ID=[PROJECT_ID]
+export ZONE=[CHOOSE_AN_APPROPRIATE_ZONE]
+
+* Para verificar que las variables se hayan establecido correctamente, ejecute los siguientes comandos:
+
+echo $PROJECT_ID
+echo $ZONE
+
+
+
