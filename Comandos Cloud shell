@@ -1,6 +1,69 @@
+* Una región es una ubicación geográfica específica donde puedes alojar recursos.
+Las regiones tienen tres o más zonas. Por ejemplo, la región us-west1 corresponde
+a una región en la costa oeste de Estados Unidos que tiene tres zonas: us-west1-a, us-west1-b y us-west1-c.
+
+
+* configura la región de Compute Engine que prefieras, por ejemplo, us-east1
+
+gcloud config set compute/region us-east1
+
+*configurar tu zona preferida, por ejemplo, us-east1-b
+
+
+gcloud config set compute/zone us-east1-b
+
+
+* Enumera las cuentas cuyas credenciales se almacenan en el sistema local:
+
+gcloud auth list
+
 * mostrar el nombre de la cuenta activa con este comando:
 
 gcloud auth list
+
+
+*Crear cuenta de servicio de nombre "cuentaserv"
+
+gcloud iam service-accounts create cuentaserv
+
+
+*Crea una cuenta de servicio para ejecutar la canalización
+
+gcloud projects add-iam-policy-binding unir-bda-345702 \
+    --member serviceAccount:cuentaserv@unir-bda-345702.iam.gserviceaccount.com \
+    --role roles/owner
+    
+    
+* Este comando descarga un archivo JSON que contiene la clave de tu cuenta de servicio.
+  Almacena este archivo en una ubicación segura.  
+  
+ gcloud iam service-accounts keys create \
+    unir-bda-345702.json \
+    --iam-account cuentaserv@unir-bda-345702.iam.gserviceaccount.com
+    
+* Exporta Credenciales
+
+export GOOGLE_APPLICATION_CREDENTIALS=unir-bda-345702-cuentaserv.json
+
+* Clona Repositorio
+
+git clone https://github.com/GoogleCloudPlatform/bigquery-etl-dataflow-sample.git
+
+* Cambia el directorio a la muestra
+cd bigquery-etl-dataflow-sample
+
+*Crea un bucket de etapa de pruebas en Cloud Storage
+
+gsutil mb gs://unir-bda-345702_bucket
+
+*
+
+
+
+
+
+
+------------------------------------------------------------
 
 * mostrar el ID del proyecto con este comando:
 
@@ -26,6 +89,11 @@ echo $ZONE
 * Visualice la lista de configuraciones en su entorno:
 
 gcloud config list
+
+* Visualice todas las propiedades y su correspondiente configuración:
+
+gcloud config list --all
+
 
 
 
