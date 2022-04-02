@@ -56,7 +56,15 @@ cd bigquery-etl-dataflow-sample
 
 gsutil mb gs://unir-bda-345702_bucket
 
-*
+* Es necesario correr estos comando para que el Archivo run.sh se ejecute correctamente.
+
+export PROJECT_ID=unir-bda-345702
+export STAGING_BUCKET=unir-bda-345702-etl-staging-bucket
+export STAGING_BUCKET=unir-bda-345702_bucket
+export DATASET=musicbrainz
+export DESTINATION_TABLE=recordings_by_artists_dataflow
+export ZONE=us-east1-b
+./run.sh simple
 
 
 
