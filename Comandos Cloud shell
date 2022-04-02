@@ -67,7 +67,12 @@ export ZONE=us-east1-b
 ./run.sh simple
 
 
+*Enumera las cuotas en una región:
+gcloud compute regions describe us-east1
 
+*Verifica las cuotas de todo el proyecto:
+
+gcloud compute project-info describe --project unir-bda-345702
 
 
 
